@@ -1,4 +1,4 @@
 package africa.semicolon.eventbookingapp.data.models;
 
-public class Organizer {
+public class Ticket {
 }
