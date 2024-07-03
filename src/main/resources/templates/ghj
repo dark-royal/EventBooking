@@ -1,9 +1,0 @@
-<groupId>africa.semicolon</groupId>
-    <artifactId>EventBookingApp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>EventBookingApp</name>
-    <description>EventBookingApp</description>
-
-    <properties>
-        <java.version>21</java.version>
-    </properties>
