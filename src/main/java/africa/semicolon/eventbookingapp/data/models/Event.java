@@ -12,12 +12,15 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 import static java.time.LocalDateTime.now;
 
 @Entity
 @Getter
 @Setter
 public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
@@ -25,21 +28,19 @@ public class Event {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Setter(AccessLevel.NONE)
     private LocalDateTime eventDateAndTime;
-
     private String location;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long organizerId;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private User attendees;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Ticket tickets;
-
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Attendees> attendeesList;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Ticket> tickets;
 
     @PrePersist
     private void setEventDateAndTime(){
         eventDateAndTime = now();
     }
+
+
 }
 
 

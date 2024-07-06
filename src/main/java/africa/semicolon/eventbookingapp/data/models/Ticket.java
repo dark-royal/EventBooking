@@ -21,6 +21,8 @@ public class Ticket {
     private String title;
     private String description;
     private String venueName;
+    private TicketCategory category;
+    private Long organizerId;
     private BigDecimal price;
     @ManyToOne
     private Reservation reserveTicket;
